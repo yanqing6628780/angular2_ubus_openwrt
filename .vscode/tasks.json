@@ -1,0 +1,9 @@
+{
+    "version": "0.1.0",
+    "command": "cmd",
+    "isShellCommand": true,
+    "showOutput": "always",
+    "args": [
+        "/C npm start"
+    ]
+}

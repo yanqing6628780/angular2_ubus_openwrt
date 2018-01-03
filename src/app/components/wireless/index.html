@@ -1,0 +1,51 @@
+<h2>无线配置</h2>
+<div nz-row nzType="flex">
+    <nz-col [nzSm]="8" [nzXs]="24">
+        <form nz-form #wirelessForm="ngForm" (ngSubmit)="submit()">
+            <ng-container *ngFor="let device of wirelessDevices" >
+                <div nz-form-label nz-col [nzSpan]="isHorizontal?4:false">
+                    <label>{{device}}</label>
+                </div>
+                <div nz-form-item nz-row>
+                    <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+                        <label nz-form-item-required>SSID</label>
+                    </div>
+                    <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
+                        <nz-input [(ngModel)]="wirelessCfg[device].ssid" [nzSize]="'large'" name="ssid">
+                        </nz-input>
+                    </div>
+                </div>
+                <div nz-form-item nz-row>
+                    <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+                        <label nz-form-item-required>Encryption</label>
+                    </div>
+                    <div nz-form-control nz-col [nzSm]="14" [nzXs]="24">
+                        <nz-select [(ngModel)]="wirelessCfg[device].encryption" [nzPlaceHolder]="'choose option'" [name]="device+'_encryption'">
+                            <nz-option
+                                *ngFor="let option of wirelessEncryption"
+                                [nzLabel]="option"
+                                [nzValue]="option"
+                            >
+                            </nz-option>
+                        </nz-select>
+                    </div>
+                </div>
+                <div nz-form-item nz-row *ngIf="wirelessCfg[device].encryption!=='none'" >
+                    <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+                        <label nz-form-item-required>Password</label>
+                    </div>
+                    <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback>
+                        <samPasswordEye [(value)]="wirelessCfg[device].key" [name]="device+'_key'"></samPasswordEye>
+                    </div>
+                </div>
+            </ng-container>
+            <div nz-form-item nz-row>
+                <div nz-form-label nz-col [nzSm]="6" [nzXs]="0">
+                </div>
+                <div nz-form-control nz-col [nzSpan]="14">
+                    <button nz-button [nzSize]="'large'" [nzType]="'primary'">Save</button>
+                </div>
+            </div>
+        </form>
+    </nz-col>
+</div>

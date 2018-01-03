@@ -1,0 +1,38 @@
+<nz-layout class="layout">
+    <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed">
+        <div class="logo"></div>
+        <ul nz-menu [nzTheme]="'dark'" [nzMode]="isCollapsed?'vertical':'inline'">
+            <li nz-menu-item [routerLink]="['/wireless']">
+                <span title>
+                    <i class="anticon anticon-user"></i>
+                    <span class="nav-text">无线配置</span>
+                </span>
+            </li>
+            <li nz-submenu>
+                <span title>
+                    <i class="anticon anticon-team"></i>
+                    <span class="nav-text">二级导航demo</span>
+                </span>
+                <ul>
+                    <li nz-menu-item>Team 1</li>
+                    <li nz-menu-item>Team 2</li>
+                </ul>
+            </li>
+        </ul>
+    </nz-sider>
+    <nz-layout>
+        <nz-header style="background: #fff; padding:0;">
+            <i class="anticon trigger" [class.anticon-menu-fold]="!isCollapsed" [class.anticon-menu-unfold]="isCollapsed" (click)="isCollapsed=!isCollapsed"></i>
+        </nz-header>
+        <nz-content class="main-content">
+            <nz-breadcrumb class="breadcrumb">
+                <nz-breadcrumb-item>Home</nz-breadcrumb-item>
+                <nz-breadcrumb-item></nz-breadcrumb-item>
+            </nz-breadcrumb>
+            <div class="outler-wrap">
+                <router-outlet></router-outlet>
+            </div>
+        </nz-content>
+        <nz-footer class='text-center'>Ant Design ©2017 by sam5372@foxmail.com</nz-footer>
+    </nz-layout>
+</nz-layout>

@@ -1,0 +1,36 @@
+<div class="login-box" nz-row nzType="flex" nzJustify="center">
+    <nz-col [nzXl]="4" [nzLg]="5" [nzMd]="6" [nzSm]="9" [nzXs]="18">
+        <nz-card>
+            <ng-template #title>
+                登录
+            </ng-template>
+            <ng-template #body>
+                <form nz-form #loginForm="ngForm" (ngSubmit)="submitForm()">
+                    <div nz-form-item>
+                        <div nz-form-control>
+                            <nz-input [(ngModel)]="username" [nzPlaceHolder]="'Username'" [nzSize]="'large'" name="username">
+                                <ng-template #prefix>
+                                <i class="anticon anticon-user"></i>
+                                </ng-template>
+                            </nz-input>
+                        </div>
+                    </div>
+                    <div nz-form-item>
+                        <div nz-form-control>
+                            <nz-input [(ngModel)]="password" [nzPlaceHolder]="'Password'" [nzSize]="'large'" name="password" nzType="password">
+                                <ng-template #prefix>
+                                    <i class="anticon anticon-lock"></i>
+                                </ng-template>
+                            </nz-input>
+                        </div>
+                    </div>
+                    <div nz-form-item>
+                        <div nz-form-control>
+                            <button nz-button class="login-form-button" [nzType]="'primary'" [nzSize]="'large'">Log in</button>
+                        </div>
+                    </div>
+                </form>
+            </ng-template>
+        </nz-card>
+    </nz-col>
+</div>
